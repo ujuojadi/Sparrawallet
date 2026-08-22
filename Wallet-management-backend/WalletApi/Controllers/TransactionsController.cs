@@ -217,6 +217,7 @@ namespace WalletApi.Controllers
 
         // helper methods
         // generate a unique reference for the transaction
+       [ApiExplorerSettings(IgnoreApi = true)]
         public int generateReference()
         {
             Random rand = new Random((int)DateTime.Now.Ticks);
