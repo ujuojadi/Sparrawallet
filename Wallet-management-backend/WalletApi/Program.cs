@@ -55,12 +55,6 @@ builder.Services.AddCors(p =>
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
-    db.Database.Migrate();
-}
-
 app.UseSwagger();
 app.UseSwaggerUI();
 
