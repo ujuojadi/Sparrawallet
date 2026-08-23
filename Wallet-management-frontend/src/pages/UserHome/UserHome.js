@@ -11,7 +11,7 @@ const UserHome = () => {
   const { transferInfo } = useSelector((state) => state.transfer);
   // const dispatch = useDispatch();
 
-  const API_URL = "http://localhost:4000/wallets/";
+  const API_URL = `${process.env.REACT_APP_API_URL}/wallets/`;
 
   // create new account info
   // const getWalletAcount = async (token) => {
