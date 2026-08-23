@@ -148,7 +148,8 @@ const OTP = () => {
   // const { setAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const errRef = useRef();
-  const API_URL = "http://localhost:4000/accounts/";
+  const API_URL = `${process.env.REACT_APP_API_URL}/accounts/`;
+ 
 
   useEffect(() => {
     if (success) {
