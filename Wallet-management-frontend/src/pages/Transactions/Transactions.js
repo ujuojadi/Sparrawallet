@@ -38,9 +38,8 @@ const Transactions = () => {
       },
     };
 
-    axios
-      .get("http://localhost:4000/transactions/" + user.id, config)
-      .then((res) => setTransactions(res.data));
+  axios.get(`${process.env.REACT_APP_API_URL}/transactions/${user.id}`, config)
+       .then((res) => setTransactions(res.data));
   }, [user]);
 
   return (
