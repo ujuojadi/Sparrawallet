@@ -7,7 +7,7 @@ const Verified = () => {
   const [isVerified, setIsVerified] = useState(false);
   const navigate = useNavigate();
   const { token } = useParams();
-  const API_URL = "http://localhost:4000/accounts/";
+ const API_URL = `${process.env.REACT_APP_API_URL}/accounts/`;
 
   useEffect(() => {
     const tokenData = {
