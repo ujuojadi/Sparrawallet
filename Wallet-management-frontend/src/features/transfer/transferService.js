@@ -7,10 +7,10 @@ const transfer = async (reference, token) => {
     },
   };
 
-  const response = await axios.get(
-    "http://localhost:4000/transactions/verify?reference=" + reference,
-    reqConfig
-  );
+ const response = await axios.get(
+  `${process.env.REACT_APP_API_URL}/transactions/verify?reference=${reference}`,
+  reqConfig
+);
 
   return response.data;
 };
