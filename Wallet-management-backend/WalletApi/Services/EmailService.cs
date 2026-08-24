@@ -33,22 +33,27 @@ namespace WalletApi.Services
             using var smtp = new SmtpClient();
 
             try
-            {
-                // send email
-                
-                smtp.Connect(_appSettings.SmtpHost, _appSettings.SmtpPort, true);
-                smtp.Authenticate(_appSettings.SmtpUser, _appSettings.SmtpPass);
-                smtp.Send(email);
-                smtp.Disconnect(true);
-            }catch(Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                smtp.Disconnect(true);
-                smtp.Dispose();
-            }
+{
+    smtp.Connect(
+        _appSettings.SmtpHost,
+        _appSettings.SmtpPort,
+        SecureSocketOptions.StartTls
+    );
+
+    smtp.Authenticate(
+        _appSettings.SmtpUser,
+        _appSettings.SmtpPass
+    );
+
+    smtp.Send(email);
+}
+finally
+{
+    if (smtp.IsConnected)
+    {
+        smtp.Disconnect(true);
+    }
+}
             
         }
     }
